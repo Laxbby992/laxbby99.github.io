@@ -1,13 +1,13 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tofeuszo Shop</title>
     <audio autoplay loop>
-        <source src="path_to_your_audio_file.mp3" type="audio/mp3">
+        <source src="song1.mp3" type="audio/mp3">
     </audio>
-    </style>
+    <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -18,30 +18,86 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            animation: backgroundAnimation 10s infinite alternate;
         }
+        
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(135deg, #121212, #383838);
+            }
+            50% {
+                background: linear-gradient(135deg, #ff5f6d, #ffc371);
+            }
+            100% {
+                background: linear-gradient(135deg, #121212, #383838);
+            }
+        }
+
         .container {
             text-align: center;
             max-width: 700px;
             padding: 30px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 12px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s ease;
         }
+        
+        .container:hover {
+            transform: scale(1.05);
+        }
+
         h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #ff5f6d, #ffc371);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: textGlow 1.5s ease-in-out infinite alternate;
         }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px #ff5f6d, 0 0 10px #ff5f6d, 0 0 15px #ff5f6d;
+            }
+            100% {
+                text-shadow: 0 0 10px #ffc371, 0 0 20px #ffc371, 0 0 30px #ff5f6d;
+            }
+        }
+
         p {
             margin: 10px 0;
             line-height: 1.6;
+            animation: textFadeIn 2s ease-in-out;
         }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
         img {
             max-width: 200px;
             margin: 20px 0;
+            animation: imageBounce 1.5s ease-in-out infinite alternate;
         }
+
+        @keyframes imageBounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
         .buy-button {
             display: inline-block;
             background: linear-gradient(45deg, #00c6ff, #0072ff);
@@ -50,29 +106,60 @@
             border-radius: 25px;
             text-decoration: none;
             font-size: 1.2em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
+
         .buy-button:hover {
             transform: scale(1.1);
             box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
         }
+
         .message {
             margin-top: 20px;
             padding: 10px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
+            display: none;
+            animation: messageSlideIn 1s ease-out;
         }
+
+        @keyframes messageSlideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .options-list {
             text-align: left;
             margin-top: 20px;
             font-size: 1.1em;
         }
+
         .options-list ul {
             list-style-type: none;
             padding: 0;
         }
+
         .options-list li {
             margin-bottom: 8px;
+            color: #ffc371;
+            transition: color 0.3s ease;
+        }
+
+        .options-list li:hover {
+            color: #ff5f6d;
+        }
+
+        .options-list li::before {
+            content: "➤";
+            color: #ff5f6d;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -83,32 +170,32 @@
         <img src="Tofeuszo.png" alt="Tofeuszo Raider">
         <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario. Make your tasks more efficient and dynamic with this tool.</p>
         <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="showMessage()">Buy Now</a>
-        <div class="message" id="message" style="display: none;">
+        <div class="message" id="message">
             Write to "roguedox3r." on Discord or join our server and write to him!
         </div>
         <div class="options-list">
             <h2>Available Options:</h2>
             <ul>
-                <li>01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join Server</li>
-                <li>02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leave Server</li>
-                <li>03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Channel Spammer</li>
-                <li>04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Checker</li>
-                <li>05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reaction Adder</li>
-                <li>06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Formatter</li>
-                <li>07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Button Click</li>
-                <li>08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rules Consent</li>
-                <li>09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guild Info</li>
-                <li>10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Requester</li>
-                <li>11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Online</li>
-                <li>12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundBoard Spam</li>
-                <li>13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nickname Rotator</li>
-                <li>14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread Spammer</li>
-                <li>15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fake Typing</li>
-                <li>16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Spammer</li>
-                <li>17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status Changer</li>
-                <li>18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Channel</li>
-                <li>19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnBoard Bypass</li>
-                <li>20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About Credits</li>
+                <li>Join Server</li>
+                <li>Leave Server</li>
+                <li>Channel Spammer</li>
+                <li>Token Checker</li>
+                <li>Reaction Adder</li>
+                <li>Token Formatter</li>
+                <li>Auto Button Click</li>
+                <li>Rules Consent</li>
+                <li>Guild Info</li>
+                <li>Friend Requester</li>
+                <li>Auto Online</li>
+                <li>SoundBoard Spam</li>
+                <li>Nickname Rotator</li>
+                <li>Thread Spammer</li>
+                <li>Fake Typing</li>
+                <li>Voice Spammer</li>
+                <li>BIO Changer</li>
+                <li>Voice Joiner</li>
+                <li>OnBoard Bypass</li>
+                <li>About Credits</li>
             </ul>
         </div>
     </div>
