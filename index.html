@@ -251,16 +251,24 @@
             </div>
         </div>
     </div>
+        <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
+    <audio id="audio" loop>
+        <source src="your-audio-file.mp3" type="audio/mp3">
+    </audio>
     <script>
-        window.onload = function() {
+        function toggleAudio() {
             var audioElement = document.getElementById('audio');
-            audioElement.muted = true; // Ensure it's muted initially to bypass autoplay restrictions
-            audioElement.play().then(() => {
-                audioElement.muted = false; // Unmute after playback starts
-            }).catch(error => {
-                console.error('Autoplay failed:', error);
-            });
-        };
+            var button = document.getElementById('soundToggle');
+            if (audioElement.paused) {
+                audioElement.play().catch(error => {
+                    console.error('Playback failed:', error);
+                });
+                button.textContent = "Sound: ON";
+            } else {
+                audioElement.pause();
+                button.textContent = "Sound: OFF";
+            }
+        }
     </script>
 </body>
 </html>
