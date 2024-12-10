@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tofeuszo Shop</title>
-    <audio id="audio" autoplay loop>
+    <audio id="audio" loop>
         <source src="song1.mp3" type="audio/mp3">
     </audio>
-    <script>
-        window.onload = function() {
-            var audioElement = document.getElementById('audio');
-            audioElement.play();
-        }
-    </script>
     <style>
         body {
             margin: 0;
@@ -194,12 +188,11 @@
         }
 
         .options-list li::before {
-            content: "➤";
+            content: "\2794";
             color: #ff5f6d;
             margin-right: 10px;
         }
 
-        /* Scrollable container with smooth scrolling */
         .scroll-container {
             max-height: 70vh;
             overflow-y: auto;
@@ -259,9 +252,15 @@
         </div>
     </div>
     <script>
-        function showMessage() {
-            document.getElementById('message').style.display = 'block';
-        }
+        window.onload = function() {
+            var audioElement = document.getElementById('audio');
+            audioElement.muted = true; // Ensure it's muted initially to bypass autoplay restrictions
+            audioElement.play().then(() => {
+                audioElement.muted = false; // Unmute after playback starts
+            }).catch(error => {
+                console.error('Autoplay failed:', error);
+            });
+        };
     </script>
 </body>
 </html>
