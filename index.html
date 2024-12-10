@@ -202,7 +202,549 @@
                 transform: translateY(0);
             }
             50% {
+           <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tofeuszo Shop</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff0000, #ff9900, #33cc33, #3399ff, #9900cc, #ff00ff, #ff1493, #00ff00, #ffff00, #ff6347, #8a2be2, #00ffff, #ff4500, #adff2f);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 20s ease infinite;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s ease;
+            animation: containerAnimation 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes containerAnimation {
+            0% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px #ff5f6d, 0 0 20px #ff5f6d, 0 0 30px #ff5f6d;
+            }
+            100% {
+                text-shadow: 0 0 20px #ffc371, 0 0 30px #ffc371, 0 0 40px #ff5f6d;
+            }
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+            animation: textFadeIn 2s ease-in-out;
+        }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        img {
+            max-width: 300px;
+            margin: 20px 0;
+            animation: imageBounce 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes imageBounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            animation: buttonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes buttonPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(0, 204, 255, 1);
+            }
+        }
+
+        .buy-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: none;
+            animation: messageSlideIn 1s ease-out;
+        }
+
+        @keyframes messageSlideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .options-list {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 1.1em;
+            animation: textFadeIn 3s ease-in-out;
+        }
+
+        .options-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 10px;
+            color: #ffc371;
+            transition: color 0.3s ease;
+        }
+
+        .options-list li:hover {
+            color: #ff5f6d;
+        }
+
+        .options-list li::before {
+            content: "\2794";
+            color: #ff5f6d;
+            margin-right: 10px;
+        }
+
+        .scroll-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 15px;
+            animation: scrollAnimation 2s ease infinite alternate;
+        }
+
+        @keyframes scrollAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
                 transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tofeuszo Shop</h1>
+        <p>Tofeuszo Raider (For Discord) | $5</p>
+        <img src="Tofeuszo.png" alt="Tofeuszo Raider">
+        <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario. Make your tasks more efficient and dynamic with this tool.</p>
+        <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="showMessage()">Buy Now</a>
+        <div class="message" id="message">
+            Write to "roguedox3r." on Discord or join our server and write to him!
+        </div>
+        <div class="scroll-container">
+            <div class="options-list">
+                <h2>Available Options:</h2>
+                <ul>
+                    <li>Join Server</li>
+                    <li>Leave Server</li>
+                    <li>Channel Spammer</li>
+                    <li>Token Checker</li>
+                    <li>Reaction Adder</li>
+                    <li>Token Formatter</li>
+                    <li>Auto Button Click</li>
+                    <li>Rules Consent</li>
+                    <li>Guild Info</li>
+                    <li>Friend Requester</li>
+                    <li>Auto Online</li>
+                    <li>SoundBoard Spam</li>
+                    <li>Nickname Rotator</li>
+                    <li>Thread Spammer</li>
+                    <li>Fake Typing</li>
+                    <li>Voice Spammer</li>
+                    <li>BIO Changer</li>
+                    <li>Voice Joiner</li>
+                    <li>OnBoard Bypass</li>
+                    <li>About Credits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
+    <audio id="audio" loop>
+        <source src="song1.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        function toggleAudio() {
+            var audioElement = document.getElementById('audio');
+            var button = document.getElementById('soundToggle');
+            if (audioElement.paused) {
+                audioElement.play().catch(error => {
+                    console.error('Playback failed:', error);
+                });
+                button.textContent = "Sound: ON";
+            } else {<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tofeuszo Shop</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff0000, #ff9900, #33cc33, #3399ff, #9900cc, #ff00ff, #ff1493, #00ff00, #ffff00, #ff6347, #8a2be2, #00ffff, #ff4500, #adff2f);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 20s ease infinite;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s ease;
+            animation: containerAnimation 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes containerAnimation {
+            0% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 10px #ff5f6d, 0 0 20px #ff5f6d, 0 0 30px #ff5f6d;
+            }
+            100% {
+                text-shadow: 0 0 20px #ffc371, 0 0 30px #ffc371, 0 0 40px #ff5f6d;
+            }
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+            animation: textFadeIn 2s ease-in-out;
+        }
+
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        img {
+            max-width: 300px;
+            margin: 20px 0;
+            animation: imageBounce 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes imageBounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            animation: buttonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes buttonPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(0, 204, 255, 1);
+            }
+        }
+
+        .buy-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: none;
+            animation: messageSlideIn 1s ease-out;
+        }
+
+        @keyframes messageSlideIn {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .options-list {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 1.1em;
+            animation: textFadeIn 3s ease-in-out;
+        }
+
+        .options-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 10px;
+            color: #ffc371;
+            transition: color 0.3s ease;
+        }
+
+        .options-list li:hover {
+            color: #ff5f6d;
+        }
+
+        .options-list li::before {
+            content: "\2794";
+            color: #ff5f6d;
+            margin-right: 10px;
+        }
+
+        .scroll-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 15px;
+            animation: scrollAnimation 2s ease infinite alternate;
+        }
+
+        @keyframes scrollAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tofeuszo Shop</h1>
+        <p>Tofeuszo Raider (For Discord) | $5</p>
+        <img src="Tofeuszo.png" alt="Tofeuszo Raider">
+        <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario. Make your tasks more efficient and dynamic with this tool.</p>
+        <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="showMessage()">Buy Now</a>
+        <div class="message" id="message">
+            Write to "roguedox3r." on Discord or join our server and write to him!
+        </div>
+        <div class="scroll-container">
+            <div class="options-list">
+                <h2>Available Options:</h2>
+                <ul>
+                    <li>Join Server</li>
+                    <li>Leave Server</li>
+                    <li>Channel Spammer</li>
+                    <li>Token Checker</li>
+                    <li>Reaction Adder</li>
+                    <li>Token Formatter</li>
+                    <li>Auto Button Click</li>
+                    <li>Rules Consent</li>
+                    <li>Guild Info</li>
+                    <li>Friend Requester</li>
+                    <li>Auto Online</li>
+                    <li>SoundBoard Spam</li>
+                    <li>Nickname Rotator</li>
+                    <li>Thread Spammer</li>
+                    <li>Fake Typing</li>
+                    <li>Voice Spammer</li>
+                    <li>BIO Changer</li>
+                    <li>Voice Joiner</li>
+                    <li>OnBoard Bypass</li>
+                    <li>About Credits</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
+    <audio id="audio" loop>
+        <source src="song1.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        function toggleAudio() {
+            var audioElement = document.getElementById('audio');
+            var button = document.getElementById('soundToggle');
+            if (audioElement.paused) {
+                audioElement.play().catch(error => {
+                    console.error('Playback failed:', error);
+                });
+                button.textContent = "Sound: ON";
+            } else {
+                audioElement.pause();
+                button.textContent = "Sound: OFF";
+            }
+        }
+    </script>
+</body>
+</html>
+
+                audioElement.pause();
+                button.textContent = "Sound: OFF";
+            }
+        }
+    </script>
+</body>
+</html>
+     transform: translateY(-10px);
             }
             100% {
                 transform: translateY(0);
