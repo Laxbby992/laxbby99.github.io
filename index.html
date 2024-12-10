@@ -74,6 +74,9 @@
     </style>
 </head>
 <body>
+    <audio id="background-music" loop autoplay>
+        <source src="song1.mp3" type="audio/mpeg">
+    </audio>
     <div class="container">
         <h1>Tofeuszo Shop</h1>
         <p>Tofeuszo Raider (For Discord) | $5</p>
@@ -109,16 +112,5 @@
             </ul>
         </div>
     </div>
-    <audio id="background-music" loop>
-        <source src="song1.mp3" type="audio/mpeg">
-    </audio>
-    <script>
-        const audio = document.getElementById('background-music');
-        audio.volume = 0.5;
-        function playAudio() {
-            audio.play().catch(() => setTimeout(playAudio, 100));
-        }
-        playAudio();
-    </script>
 </body>
 </html>
