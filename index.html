@@ -79,7 +79,7 @@
         <p>Tofeuszo Raider (For Discord) | $5</p>
         <img src="Tofeuszo.png" alt="Tofeuszo Raider">
         <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario. Make your tasks more efficient and dynamic with this tool.</p>
-        <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="showMessage()">Buy Now</a>
+        <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="startMusic()">Buy Now</a>
         <div class="message" id="message" style="display: none;">
             Write to "roguedox3r." on Discord or join our server and write to him!
         </div>
@@ -109,17 +109,13 @@
             </ul>
         </div>
     </div>
-    <audio autoplay loop id="background-music">
+    <audio id="background-music" loop>
         <source src="song1.mp3" type="audio/mpeg">
     </audio>
     <script>
-        window.addEventListener('load', () => {
-            const audio = document.getElementById('background-music');
-            audio.volume = 1;
+        const audio = document.getElementById('background-music');
+        function startMusic() {
             audio.play().catch(error => console.error(error));
-        });
-
-        function showMessage() {
             document.getElementById('message').style.display = 'block';
         }
     </script>
