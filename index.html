@@ -74,50 +74,48 @@
     </style>
 </head>
 <body>
-    <audio id="background-music" loop autoplay muted>
-        <source src="song1.mp3" type="audio/mpeg">
-    </audio>
-
     <div class="container">
         <h1>Tofeuszo Shop</h1>
         <p>Tofeuszo Raider (For Discord) | $5</p>
         <img src="Tofeuszo.png" alt="Tofeuszo Raider">
         <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario. Make your tasks more efficient and dynamic with this tool.</p>
-        <a href="https://discord.gg/W2JF82pNDn" class="buy-button">Buy Now</a>
+        <a href="https://discord.gg/W2JF82pNDn" class="buy-button" onclick="showMessage()">Buy Now</a>
         <div class="message" id="message" style="display: none;">
             Write to "roguedox3r." on Discord or join our server and write to him!
         </div>
         <div class="options-list">
             <h2>Available Options:</h2>
             <ul>
-                <li>01 Join Server</li>
-                <li>02 Leave Server</li>
-                <li>03 Channel Spammer</li>
-                <li>04 Token Checker</li>
-                <li>05 Reaction Adder</li>
-                <li>06 Token Formatter</li>
-                <li>07 Auto Button Click</li>
-                <li>08 Rules Consent</li>
-                <li>09 Guild Info</li>
-                <li>10 Friend Requester</li>
-                <li>11 Auto Online</li>
-                <li>12 SoundBoard Spam</li>
-                <li>13 Nickname Rotator</li>
-                <li>14 Thread Spammer</li>
-                <li>15 Fake Typing</li>
-                <li>16 Voice Spammer</li>
-                <li>17 Status Changer</li>
-                <li>18 Voice Channel</li>
-                <li>19 OnBoard Bypass</li>
-                <li>20 About Credits</li>
+                <li>01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join Server</li>
+                <li>02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leave Server</li>
+                <li>03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Channel Spammer</li>
+                <li>04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Checker</li>
+                <li>05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reaction Adder</li>
+                <li>06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Formatter</li>
+                <li>07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Button Click</li>
+                <li>08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rules Consent</li>
+                <li>09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guild Info</li>
+                <li>10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Requester</li>
+                <li>11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Online</li>
+                <li>12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundBoard Spam</li>
+                <li>13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nickname Rotator</li>
+                <li>14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread Spammer</li>
+                <li>15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fake Typing</li>
+                <li>16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Spammer</li>
+                <li>17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Status Changer</li>
+                <li>18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Channel</li>
+                <li>19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnBoard Bypass</li>
+                <li>20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About Credits</li>
             </ul>
         </div>
     </div>
-
+    <audio autoplay loop>
+        <source src="song1.mp3" type="audio/mpeg">
+    </audio>
     <script>
-        const audio = document.getElementById('background-music');
-        audio.volume = 0.5;
-        audio.play();
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+        }
     </script>
 </body>
 </html>
