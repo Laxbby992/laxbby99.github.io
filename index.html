@@ -4,25 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tofeuszo Shop</title>
-    <audio autoplay loop>
+    <audio id="audio" autoplay loop>
         <source src="song1.mp3" type="audio/mp3">
     </audio>
+    <audio id="audio2" autoplay loop>
+        <source src="song1.mp3" type="audio/mp3">
+    </audio>
+    <script>
+        function playAudio() {
+            var audioElement = document.getElementById('audio');
+            audioElement.play();
+            var audioElement2 = document.getElementById('audio2');
+            audioElement2.play();
+        }
+        playAudio();
+    </script>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff5f6d, #ffc371, #ffcc33, #ff3399, #33cc33, #3399ff, #6633ff);
-            background-size: 1400% 1400%;
-            animation: rainbowAnimation 20s linear infinite;
+            background: linear-gradient(135deg, #ff0000, #ff9900, #33cc33, #3399ff, #9900cc, #ff00ff, #ff1493, #00ff00, #ffff00, #ff6347, #8a2be2, #00ffff, #ff4500, #adff2f);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 10s ease infinite;
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
         
-        @keyframes rainbowAnimation {
+        @keyframes backgroundAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -35,29 +48,37 @@
             background: rgba(0, 0, 0, 0.8);
             border-radius: 12px;
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
         }
         
         .container:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 10px;
             background: linear-gradient(45deg, #ff5f6d, #ffc371);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: textGlow 1.5s ease-in-out infinite alternate;
+            animation: textGlow 1.5s ease-in-out infinite alternate, rainbowGlow 1.5s ease-in-out infinite;
         }
 
         @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 5px #ff5f6d, 0 0 10px #ff5f6d, 0 0 15px #ff5f6d;
-            }
-            100% {
-                text-shadow: 0 0 10px #ffc371, 0 0 20px #ffc371, 0 0 30px #ff5f6d;
-            }
+            0% { text-shadow: 0 0 5px #ff5f6d, 0 0 10px #ff5f6d, 0 0 15px #ff5f6d; }
+            100% { text-shadow: 0 0 10px #ffc371, 0 0 20px #ffc371, 0 0 30px #ff5f6d; }
+        }
+
+        @keyframes rainbowGlow {
+            0% { color: #ff0000; }
+            14% { color: #ff9900; }
+            28% { color: #33cc33; }
+            42% { color: #3399ff; }
+            57% { color: #9900cc; }
+            71% { color: #ff00ff; }
+            85% { color: #ff1493; }
+            100% { color: #00ff00; }
         }
 
         p {
@@ -67,38 +88,34 @@
         }
 
         @keyframes textFadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         img {
             max-width: 200px;
             margin: 20px 0;
-            animation: imageBounce 1.5s ease-in-out infinite alternate;
+            animation: imageBounce 1.5s ease-in-out infinite alternate, imagePulse 3s ease-in-out infinite;
         }
 
         @keyframes imageBounce {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes imagePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .buy-button {
             display: inline-block;
             background: linear-gradient(45deg, #00c6ff, #0072ff);
             color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 12px 24px;
+            border-radius: 30px;
             text-decoration: none;
             font-size: 1.2em;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -120,14 +137,8 @@
         }
 
         @keyframes messageSlideIn {
-            0% {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         .options-list {
@@ -144,11 +155,12 @@
         .options-list li {
             margin-bottom: 8px;
             color: #ffc371;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .options-list li:hover {
             color: #ff5f6d;
+            transform: translateX(10px);
         }
 
         .options-list li::before {
