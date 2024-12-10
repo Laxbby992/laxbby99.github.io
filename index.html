@@ -86,33 +86,39 @@
         <div class="options-list">
             <h2>Available Options:</h2>
             <ul>
-                <li>01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Join Server</li>
-                <li>02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Leave Server</li>
-                <li>03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Channel Spammer</li>
-                <li>04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Checker</li>
-                <li>05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reaction Adder</li>
-                <li>06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Token Formatter</li>
-                <li>07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Button Click</li>
-                <li>08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rules Consent</li>
-                <li>09&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guild Info</li>
-                <li>10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Friend Requester</li>
-                <li>11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Online</li>
-                <li>12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SoundBoard Spam</li>
-                <li>13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nickname Changer</li>
-                <li>14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread Spammer</li>
-                <li>15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fake Typing</li>
-                <li>16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Spammer</li>
-                <li>17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BIO Changer</li>
-                <li>18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voice Joiner</li>
-                <li>19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OnBoard Bypass</li>
-                <li>20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About Credits</li>
+                <li>01 Join Server</li>
+                <li>02 Leave Server</li>
+                <li>03 Channel Spammer</li>
+                <li>04 Token Checker</li>
+                <li>05 Reaction Adder</li>
+                <li>06 Token Formatter</li>
+                <li>07 Auto Button Click</li>
+                <li>08 Rules Consent</li>
+                <li>09 Guild Info</li>
+                <li>10 Friend Requester</li>
+                <li>11 Auto Online</li>
+                <li>12 SoundBoard Spam</li>
+                <li>13 Nickname Rotator</li>
+                <li>14 Thread Spammer</li>
+                <li>15 Fake Typing</li>
+                <li>16 Voice Spammer</li>
+                <li>17 Status Changer</li>
+                <li>18 Voice Channel</li>
+                <li>19 OnBoard Bypass</li>
+                <li>20 About Credits</li>
             </ul>
         </div>
     </div>
-    <audio autoplay loop>
+    <audio autoplay loop id="background-music">
         <source src="song1.mp3" type="audio/mpeg">
     </audio>
     <script>
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-music');
+            audio.volume = 1;
+            audio.play().catch(error => console.error(error));
+        });
+
         function showMessage() {
             document.getElementById('message').style.display = 'block';
         }
