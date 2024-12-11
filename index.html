@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #333, #555);
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -16,14 +16,27 @@
             justify-content: flex-start;
             min-height: 200vh;
             padding: 20px;
+            animation: bgPulse 10s infinite;
+        }
+
+        @keyframes bgPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff5f6d, #ffc371);
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: rainbowText 3s infinite linear;
+        }
+
+        @keyframes rainbowText {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
         .container {
@@ -32,34 +45,42 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2) inset;
         }
 
         img {
             width: 400px;
             border-radius: 15px;
             margin: 20px 0;
-            animation: imgBounce 3s infinite ease-in-out;
+            animation: imgBounce 3s infinite ease-in-out, rotateImg 8s infinite linear;
         }
 
         @keyframes imgBounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes rotateImg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .buy-button {
             display: inline-block;
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
             color: #fff;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-size: 1.5em;
             margin-top: 15px;
+            animation: glowEffect 2s infinite;
+        }
+
+        @keyframes glowEffect {
+            0% { box-shadow: 0 0 10px red; }
+            50% { box-shadow: 0 0 20px orange; }
+            100% { box-shadow: 0 0 10px red; }
         }
 
         .scroll-container {
@@ -69,6 +90,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .options-list ul {
@@ -79,12 +101,10 @@
         .options-list li {
             margin: 10px 0;
             font-size: 1.2em;
-        }
-
-        .options-list li::before {
-            content: "\2794";
-            color: #ffc371;
-            margin-right: 10px;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowText 3s infinite linear;
         }
 
         .arrow {
@@ -98,12 +118,8 @@
         }
 
         @keyframes arrowBlink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .sound-info {
@@ -116,10 +132,27 @@
             border-radius: 10px;
             width: 90%;
             max-width: 400px;
+            animation: flickerEffect 2s infinite;
+        }
+
+        @keyframes flickerEffect {
+            0% { opacity: 0.9; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.9; }
         }
 
         .sound-info strong {
             color: #ffc371;
+        }
+
+        button {
+            animation: buttonPulse 3s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -170,11 +203,11 @@
             var button = document.getElementById('soundToggle');
             if (audioElement.paused) {
                 audioElement.play().catch(error => console.error('Playback failed:', error));
-                button.textContent = "Sound: ON";
+                button.textContent = "Sound ~ ON";
                 button.style.backgroundColor = "#28a745";
             } else {
                 audioElement.pause();
-                button.textContent = "Sound: OFF";
+                button.textContent = "Sound ~ OFF";
                 button.style.backgroundColor = "#0072ff";
             }
         }
