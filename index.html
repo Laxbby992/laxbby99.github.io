@@ -22,9 +22,7 @@
 
         @keyframes backgroundAnimate {
             0% { background-position: 0% 0%; }
-            25% { background-position: 50% 100%; }
-            50% { background-position: 100% 0%; }
-            75% { background-position: 50% 50%; }
+            50% { background-position: 100% 100%; }
             100% { background-position: 0% 100%; }
         }
 
@@ -72,15 +70,23 @@
             text-decoration: none;
             font-size: 1.5em;
             margin-top: 15px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.1);
+            background: #0056b3;
         }
 
         .scroll-container {
             max-height: 500px;
             overflow-y: auto;
             margin-top: 30px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             padding: 15px;
+            width: 100%;
+            max-width: 800px;
         }
 
         .options-list ul {
@@ -90,18 +96,15 @@
 
         .options-list li {
             margin: 10px 0;
-            font-size: 1.2em;
-            color: #001F4D;
-            animation: listRainbowEffect 6s infinite;
+            font-size: 1.5em;
+            color: #FFD700;
+            text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+            animation: listGlow 3s infinite alternate;
         }
 
-        @keyframes listRainbowEffect {
-            0% { color: rgba(255, 179, 179, 0.96); }
-            20% { color: rgba(255, 217, 179, 1); }
-            40% { color: rgba(255, 255, 179, 0.96); }
-            60% { color: rgba(179, 255, 179, 1); }
-            80% { color: rgba(179, 217, 255, 0.96); }
-            100% { color: rgba(217, 179, 255, 1); }
+        @keyframes listGlow {
+            0% { text-shadow: 0 0 5px #FFD700; }
+            100% { text-shadow: 0 0 20px #FFFF00; }
         }
 
         .sound-info {
@@ -126,6 +129,11 @@
             color: #fff;
             border-radius: 10px;
             font-size: 1.2em;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -137,7 +145,7 @@
         <a href="https://discord.com/invite/UHb83TymjK" class="buy-button">Buy Now</a>
     </div>
     <div class="scroll-container">
-        <h2>Available Options:</h2>
+        <h2 style="color: #FFD700; text-shadow: 0 0 10px #FFD700;">Available Options:</h2>
         <div class="options-list">
             <ul>
                 <li>Join Server</li>
@@ -164,7 +172,7 @@
         </div>
     </div>
     <div class="sound-info">
-        <p><strong>Tip:</strong> Click the "Sound: ON/OFF" button to enable music!</p>
+        <p><strong>TIP ~</strong> Click the "Sound ~ ON/OFF" button to enable music!</p>
     </div>
     <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
     <audio id="audio" loop>
@@ -176,10 +184,10 @@
             var button = document.getElementById('soundToggle');
             if (audioElement.paused) {
                 audioElement.play().catch(error => console.error('Playback failed:', error));
-                button.textContent = "Sound: ON";
+                button.textContent = "Sound ~ ON";
             } else {
                 audioElement.pause();
-                button.textContent = "Sound: OFF";
+                button.textContent = "Sound ~ OFF";
             }
         }
     </script>
