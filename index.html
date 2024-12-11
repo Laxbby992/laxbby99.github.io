@@ -1,448 +1,741 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tofeuszo Shop</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 200vh;
-            padding: 20px;
-            animation: bgPulse 10s infinite;
-        }
+    <head>
+        <meta charset="UTF-8" />
 
-        @keyframes bgPulse {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowText 3s infinite linear;
-        }
+        <title>Tofeuszo Shop</title>
 
-        @keyframes rainbowText {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
+        <style>
+            body {
+                margin: 0;
 
-        .container {
-            max-width: 900px;
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2) inset;
-        }
+                font-family: Arial, sans-serif;
 
-        img {
-            width: 400px;
-            border-radius: 15px;
-    margin: 20px 0;
-    animation: imgBounce 3s infinite ease-in-out, pulseImg 6s infinite ease-in-out;
-}
+                background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
 
-@keyframes imgBounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
+                color: #fff;
 
-@keyframes pulseImg {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
+                display: flex;
 
-        .buy-button {
-            display: inline-block;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin-top: 15px;
-            animation: glowEffect 2s infinite;
-        }
+                flex-direction: column;
 
-        @keyframes glowEffect {
-            0% { box-shadow: 0 0 10px red; }
-            50% { box-shadow: 0 0 20px orange; }
-            100% { box-shadow: 0 0 10px red; }
-        }
+                align-items: center;
 
-        .scroll-container {
-            max-height: 500px;
-            overflow-y: auto;
-            margin-top: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
+                justify-content: flex-start;
 
-        .options-list ul {
-            list-style: none;
-            padding: 0;
-        }
+                min-height: 200vh;
 
-        .options-list li {
-            margin: 10px 0;
-            font-size: 1.2em;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowText 3s infinite linear;
-        }
+                padding: 20px;
 
-        .arrow {
-            position: absolute;
-            top: 10px;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: 2em;
-            color: rgba(255, 255, 255, 0.7);
-            animation: arrowBlink 1.5s infinite;
-        }
-
-        @keyframes arrowBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .sound-info {
-            position: fixed;
-            bottom: 10px;
-            text-align: center;
-            font-size: 1em;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            animation: flickerEffect 2s infinite;
-        }
-
-        @keyframes flickerEffect {
-            0% { opacity: 0.9; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.9; }
-        }
-
-        .sound-info strong {
-            color: #ffc371;
-        }
-
-        button {
-            animation: buttonPulse 3s infinite;
-        }
-
-        @keyframes buttonPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tofeuszo Shop</h1>
-        <img src="Tofeuszo.png" alt="Tofeuszo Raider">
-        <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario.</p>
-        <a href="https://discord.com/invite/UHb83TymjK" class="buy-button">Buy Now</a>
-    </div>
-    <div class="scroll-container">
-        <h2>Available Options:</h2>
-        <div class="options-list">
-            <ul>
-                <li>Join Server</li>
-                <li>Leave Server</li>
-                <li>Channel Spammer</li>
-                <li>Token Checker</li>
-                <li>Reaction Adder</li>
-                <li>Token Formatter</li>
-                <li>Auto Button Click</li>
-                <li>Rules Consent</li>
-                <li>Guild Info</li>
-                <li>Fri<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tofeuszo Shop</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 200vh;
-            padding: 20px;
-            animation: bgPulse 10s infinite;
-        }
-
-        @keyframes bgPulse {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowText 3s infinite linear;
-        }
-
-        @keyframes rainbowText {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .container {
-            max-width: 900px;
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2) inset;
-        }
-
-        img {
-            width: 400px;
-            border-radius: 15px;
-    margin: 20px 0;
-    animation: imgBounce 3s infinite ease-in-out, pulseImg 6s infinite ease-in-out;
-}
-
-@keyframes imgBounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes pulseImg {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-        .buy-button {
-            display: inline-block;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1.5em;
-            margin-top: 15px;
-            animation: glowEffect 2s infinite;
-        }
-
-        @keyframes glowEffect {
-            0% { box-shadow: 0 0 10px red; }
-            50% { box-shadow: 0 0 20px orange; }
-            100% { box-shadow: 0 0 10px red; }
-        }
-
-        .scroll-container {
-            max-height: 500px;
-            overflow-y: auto;
-            margin-top: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .options-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .options-list li {
-            margin: 10px 0;
-            font-size: 1.2em;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowText 3s infinite linear;
-        }
-
-        .arrow {
-            position: absolute;
-            top: 10px;
-            right: 50%;
-            transform: translateX(50%);
-            font-size: 2em;
-            color: rgba(255, 255, 255, 0.7);
-            animation: arrowBlink 1.5s infinite;
-        }
-
-        @keyframes arrowBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .sound-info {
-            position: fixed;
-            bottom: 10px;
-            text-align: center;
-            font-size: 1em;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            animation: flickerEffect 2s infinite;
-        }
-
-        @keyframes flickerEffect {
-            0% { opacity: 0.9; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.9; }
-        }
-
-        .sound-info strong {
-            color: #ffc371;
-        }
-
-        button {
-            animation: buttonPulse 3s infinite;
-        }
-
-        @keyframes buttonPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tofeuszo Shop</h1>
-        <img src="Tofeuszo.png" alt="Tofeuszo Raider">
-        <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario.</p>
-        <a href="https://discord.com/invite/UHb83TymjK" class="buy-button">Buy Now</a>
-    </div>
-    <div class="scroll-container">
-        <h2>Available Options:</h2>
-        <div class="options-list">
-            <ul>
-                <li>Join Server</li>
-                <li>Leave Server</li>
-                <li>Channel Spammer</li>
-                <li>Token Checker</li>
-                <li>Reaction Adder</li>
-                <li>Token Formatter</li>
-                <li>Auto Button Click</li>
-                <li>Rules Consent</li>
-                <li>Guild Info</li>
-                <li>Friend Requester</li>
-                <li>Auto Online</li>
-                <li>SoundBoard Spam</li>
-                <li>Nickname Rotator</li>
-                <li>Thread Spammer</li>
-                <li>Fake Typing</li>
-                <li>Voice Spammer</li>
-                <li>BIO Changer</li>
-                <li>Voice Joiner</li>
-                <li>OnBoard Bypass</li>
-                <li>About Credits</li>
-            </ul>
-        </div>
-    </div>
-    <div class="sound-info">
-        <p><strong>TIP ~ </strong> Click the "Sound ~ ON/OFF" button to enable music!</p>
-    </div>
-    <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: #0072ff; color: #fff; border-radius: 10px; font-size: 1.2em;">Sound: OFF</button>
-    <audio id="audio" loop>
-        <source src="song1.mp3" type="audio/mp3">
-    </audio>
-    <script>
-        function toggleAudio() {
-            var audioElement = document.getElementById('audio');
-            var button = document.getElementById('soundToggle');
-            if (audioElement.paused) {
-                audioElement.play().catch(error => console.error('Playback failed:', error));
-                button.textContent = "Sound ~ ON";
-                button.style.backgroundColor = "#28a745";
-            } else {
-                audioElement.pause();
-                button.textContent = "Sound ~ OFF";
-                button.style.backgroundColor = "#0072ff";
+                animation: bgPulse 10s infinite;
             }
-        }
-    </script>
-</body>
-</html>
-end Requester</li>
-                <li>Auto Online</li>
-                <li>SoundBoard Spam</li>
-                <li>Nickname Rotator</li>
-                <li>Thread Spammer</li>
-                <li>Fake Typing</li>
-                <li>Voice Spammer</li>
-                <li>BIO Changer</li>
-                <li>Voice Joiner</li>
-                <li>OnBoard Bypass</li>
-                <li>About Credits</li>
-            </ul>
-        </div>
-    </div>
-    <div class="sound-info">
-        <p><strong>TIP ~ </strong> Click the "Sound ~ ON/OFF" button to enable music!</p>
-    </div>
-    <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: #0072ff; color: #fff; border-radius: 10px; font-size: 1.2em;">Sound: OFF</button>
-    <audio id="audio" loop>
-        <source src="song1.mp3" type="audio/mp3">
-    </audio>
-    <script>
-        function toggleAudio() {
-            var audioElement = document.getElementById('audio');
-            var button = document.getElementById('soundToggle');
-            if (audioElement.paused) {
-                audioElement.play().catch(error => console.error('Playback failed:', error));
-                button.textContent = "Sound ~ ON";
-                button.style.backgroundColor = "#28a745";
-            } else {
-                audioElement.pause();
-                button.textContent = "Sound ~ OFF";
-                button.style.backgroundColor = "#0072ff";
+
+            @keyframes bgPulse {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
             }
-        }
-    </script>
-</body>
+
+            h1 {
+                font-size: 3em;
+
+                margin-bottom: 20px;
+
+                background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+
+                -webkit-background-clip: text;
+
+                -webkit-text-fill-color: transparent;
+
+                animation: rainbowText 3s infinite linear;
+            }
+
+            @keyframes rainbowText {
+                0% {
+                    filter: hue-rotate(0deg);
+                }
+
+                100% {
+                    filter: hue-rotate(360deg);
+                }
+            }
+
+            .container {
+                max-width: 900px;
+
+                text-align: center;
+
+                padding: 20px;
+
+                background: rgba(0, 0, 0, 0.8);
+
+                border-radius: 15px;
+
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2) inset;
+            }
+
+            img {
+                width: 400px;
+
+                border-radius: 15px;
+
+                margin: 20px 0;
+
+                animation: imgBounce 3s infinite ease-in-out, pulseImg 6s infinite ease-in-out;
+            }
+
+            @keyframes imgBounce {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            @keyframes pulseImg {
+                0%,
+                100% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+            }
+
+            .buy-button {
+                display: inline-block;
+
+                background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+                color: #fff;
+
+                padding: 12px 24px;
+
+                border-radius: 25px;
+
+                text-decoration: none;
+
+                font-size: 1.5em;
+
+                margin-top: 15px;
+
+                animation: glowEffect 2s infinite;
+            }
+
+            @keyframes glowEffect {
+                0% {
+                    box-shadow: 0 0 10px red;
+                }
+
+                50% {
+                    box-shadow: 0 0 20px orange;
+                }
+
+                100% {
+                    box-shadow: 0 0 10px red;
+                }
+            }
+
+            .scroll-container {
+                max-height: 500px;
+
+                overflow-y: auto;
+
+                margin-top: 30px;
+
+                background: rgba(255, 255, 255, 0.1);
+
+                border-radius: 10px;
+
+                padding: 15px;
+
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .options-list ul {
+                list-style: none;
+
+                padding: 0;
+            }
+
+            .options-list li {
+                margin: 10px 0;
+
+                font-size: 1.2em;
+
+                background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+                -webkit-background-clip: text;
+
+                -webkit-text-fill-color: transparent;
+
+                animation: rainbowText 3s infinite linear;
+            }
+
+            .arrow {
+                position: absolute;
+
+                top: 10px;
+
+                right: 50%;
+
+                transform: translateX(50%);
+
+                font-size: 2em;
+
+                color: rgba(255, 255, 255, 0.7);
+
+                animation: arrowBlink 1.5s infinite;
+            }
+
+            @keyframes arrowBlink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+            }
+
+            .sound-info {
+                position: fixed;
+
+                bottom: 10px;
+
+                text-align: center;
+
+                font-size: 1em;
+
+                padding: 10px;
+
+                background: rgba(0, 0, 0, 0.7);
+
+                border-radius: 10px;
+
+                width: 90%;
+
+                max-width: 400px;
+
+                animation: flickerEffect 2s infinite;
+            }
+
+            @keyframes flickerEffect {
+                0% {
+                    opacity: 0.9;
+                }
+
+                50% {
+                    opacity: 0.7;
+                }
+
+                100% {
+                    opacity: 0.9;
+                }
+            }
+
+            .sound-info strong {
+                color: #ffc371;
+            }
+
+            button {
+                animation: buttonPulse 3s infinite;
+            }
+
+            @keyframes buttonPulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Tofeuszo Shop</h1>
+
+            <img src="Tofeuszo.png" alt="Tofeuszo Raider" />
+
+            <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario.</p>
+
+            <a href="https://discord.com/invite/UHb83TymjK" class="buy-button">Buy Now</a>
+        </div>
+
+        <div class="scroll-container">
+            <h2>Available Options:</h2>
+
+            <div class="options-list">
+                <ul>
+                    <li>Join Server</li>
+
+                    <li>Leave Server</li>
+
+                    <li>Channel Spammer</li>
+
+                    <li>Token Checker</li>
+
+                    <li>Reaction Adder</li>
+
+                    <li>Token Formatter</li>
+
+                    <li>Auto Button Click</li>
+
+                    <li>Rules Consent</li>
+
+                    <li>Guild Info</li>
+
+                    <li>
+                        Fri<!DOCTYPE html>
+
+                        <html lang="en">
+                            <head>
+                                <meta charset="UTF-8" />
+
+                                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+                                <title>Tofeuszo Shop</title>
+
+                                <style>
+                                    body {
+                                        margin: 0;
+
+                                        font-family: Arial, sans-serif;
+
+                                        background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+                                        color: #fff;
+
+                                        display: flex;
+
+                                        flex-direction: column;
+
+                                        align-items: center;
+
+                                        justify-content: flex-start;
+
+                                        min-height: 200vh;
+
+                                        padding: 20px;
+
+                                        animation: bgPulse 10s infinite;
+                                    }
+
+                                    @keyframes bgPulse {
+                                        0% {
+                                            background-position: 0% 50%;
+                                        }
+
+                                        50% {
+                                            background-position: 100% 50%;
+                                        }
+
+                                        100% {
+                                            background-position: 0% 50%;
+                                        }
+                                    }
+
+                                    h1 {
+                                        font-size: 3em;
+
+                                        margin-bottom: 20px;
+
+                                        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+
+                                        -webkit-background-clip: text;
+
+                                        -webkit-text-fill-color: transparent;
+
+                                        animation: rainbowText 3s infinite linear;
+                                    }
+
+                                    @keyframes rainbowText {
+                                        0% {
+                                            filter: hue-rotate(0deg);
+                                        }
+
+                                        100% {
+                                            filter: hue-rotate(360deg);
+                                        }
+                                    }
+
+                                    .container {
+                                        max-width: 900px;
+
+                                        text-align: center;
+
+                                        padding: 20px;
+
+                                        background: rgba(0, 0, 0, 0.8);
+
+                                        border-radius: 15px;
+
+                                        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.2) inset;
+                                    }
+
+                                    img {
+                                        width: 400px;
+
+                                        border-radius: 15px;
+
+                                        margin: 20px 0;
+
+                                        animation: imgBounce 3s infinite ease-in-out, pulseImg 6s infinite ease-in-out;
+                                    }
+
+                                    @keyframes imgBounce {
+                                        0%,
+                                        100% {
+                                            transform: translateY(0);
+                                        }
+
+                                        50% {
+                                            transform: translateY(-20px);
+                                        }
+                                    }
+
+                                    @keyframes pulseImg {
+                                        0%,
+                                        100% {
+                                            transform: scale(1);
+                                        }
+
+                                        50% {
+                                            transform: scale(1.1);
+                                        }
+                                    }
+
+                                    .buy-button {
+                                        display: inline-block;
+
+                                        background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+                                        color: #fff;
+
+                                        padding: 12px 24px;
+
+                                        border-radius: 25px;
+
+                                        text-decoration: none;
+
+                                        font-size: 1.5em;
+
+                                        margin-top: 15px;
+
+                                        animation: glowEffect 2s infinite;
+                                    }
+
+                                    @keyframes glowEffect {
+                                        0% {
+                                            box-shadow: 0 0 10px red;
+                                        }
+
+                                        50% {
+                                            box-shadow: 0 0 20px orange;
+                                        }
+
+                                        100% {
+                                            box-shadow: 0 0 10px red;
+                                        }
+                                    }
+
+                                    .scroll-container {
+                                        max-height: 500px;
+
+                                        overflow-y: auto;
+
+                                        margin-top: 30px;
+
+                                        background: rgba(255, 255, 255, 0.1);
+
+                                        border-radius: 10px;
+
+                                        padding: 15px;
+
+                                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                                    }
+
+                                    .options-list ul {
+                                        list-style: none;
+
+                                        padding: 0;
+                                    }
+
+                                    .options-list li {
+                                        margin: 10px 0;
+
+                                        font-size: 1.2em;
+
+                                        background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+
+                                        -webkit-background-clip: text;
+
+                                        -webkit-text-fill-color: transparent;
+
+                                        animation: rainbowText 3s infinite linear;
+                                    }
+
+                                    .arrow {
+                                        position: absolute;
+
+                                        top: 10px;
+
+                                        right: 50%;
+
+                                        transform: translateX(50%);
+
+                                        font-size: 2em;
+
+                                        color: rgba(255, 255, 255, 0.7);
+
+                                        animation: arrowBlink 1.5s infinite;
+                                    }
+
+                                    @keyframes arrowBlink {
+                                        0%,
+                                        100% {
+                                            opacity: 1;
+                                        }
+
+                                        50% {
+                                            opacity: 0.5;
+                                        }
+                                    }
+
+                                    .sound-info {
+                                        position: fixed;
+
+                                        bottom: 10px;
+
+                                        text-align: center;
+
+                                        font-size: 1em;
+
+                                        padding: 10px;
+
+                                        background: rgba(0, 0, 0, 0.7);
+
+                                        border-radius: 10px;
+
+                                        width: 90%;
+
+                                        max-width: 400px;
+
+                                        animation: flickerEffect 2s infinite;
+                                    }
+
+                                    @keyframes flickerEffect {
+                                        0% {
+                                            opacity: 0.9;
+                                        }
+
+                                        50% {
+                                            opacity: 0.7;
+                                        }
+
+                                        100% {
+                                            opacity: 0.9;
+                                        }
+                                    }
+
+                                    .sound-info strong {
+                                        color: #ffc371;
+                                    }
+
+                                    button {
+                                        animation: buttonPulse 3s infinite;
+                                    }
+
+                                    @keyframes buttonPulse {
+                                        0% {
+                                            transform: scale(1);
+                                        }
+
+                                        50% {
+                                            transform: scale(1.1);
+                                        }
+
+                                        100% {
+                                            transform: scale(1);
+                                        }
+                                    }
+                                </style>
+                            </head>
+
+                            <body>
+                                <div class="container">
+                                    <h1>Tofeuszo Shop</h1>
+
+                                    <img src="Tofeuszo.png" alt="Tofeuszo Raider" />
+
+                                    <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario.</p>
+
+                                    <a href="https://discord.com/invite/UHb83TymjK" class="buy-button">Buy Now</a>
+                                </div>
+
+                                <div class="scroll-container">
+                                    <h2>Available Options:</h2>
+
+                                    <div class="options-list">
+                                        <ul>
+                                            <li>Join Server</li>
+
+                                            <li>Leave Server</li>
+
+                                            <li>Channel Spammer</li>
+
+                                            <li>Token Checker</li>
+
+                                            <li>Reaction Adder</li>
+
+                                            <li>Token Formatter</li>
+
+                                            <li>Auto Button Click</li>
+
+                                            <li>Rules Consent</li>
+
+                                            <li>Guild Info</li>
+
+                                            <li>Friend Requester</li>
+
+                                            <li>Auto Online</li>
+
+                                            <li>SoundBoard Spam</li>
+
+                                            <li>Nickname Rotator</li>
+
+                                            <li>Thread Spammer</li>
+
+                                            <li>Fake Typing</li>
+
+                                            <li>Voice Spammer</li>
+
+                                            <li>BIO Changer</li>
+
+                                            <li>Voice Joiner</li>
+
+                                            <li>OnBoard Bypass</li>
+
+                                            <li>About Credits</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="sound-info">
+                                    <p><strong>TIP ~ </strong> Click the "Sound ~ ON/OFF" button to enable music!</p>
+                                </div>
+
+                                <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: #0072ff; color: #fff; border-radius: 10px; font-size: 1.2em;">
+                                    Sound: OFF
+                                </button>
+
+                                <audio id="audio" loop>
+                                    <source src="song1.mp3" type="audio/mp3" />
+                                </audio>
+
+                                <script>
+                                    function toggleAudio() {
+                                        var audioElement = document.getElementById("audio");
+
+                                        var button = document.getElementById("soundToggle");
+
+                                        if (audioElement.paused) {
+                                            audioElement.play().catch((error) => console.error("Playback failed:", error));
+
+                                            button.textContent = "Sound ~ ON";
+
+                                            button.style.backgroundColor = "#28a745";
+                                        } else {
+                                            audioElement.pause();
+
+                                            button.textContent = "Sound ~ OFF";
+
+                                            button.style.backgroundColor = "#0072ff";
+                                        }
+                                    }
+                                </script>
+                            </body>
+                        </html>
+
+                        end Requester
+                    </li>
+
+                    <li>Auto Online</li>
+
+                    <li>SoundBoard Spam</li>
+
+                    <li>Nickname Rotator</li>
+
+                    <li>Thread Spammer</li>
+
+                    <li>Fake Typing</li>
+
+                    <li>Voice Spammer</li>
+
+                    <li>BIO Changer</li>
+
+                    <li>Voice Joiner</li>
+
+                    <li>OnBoard Bypass</li>
+
+                    <li>About Credits</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sound-info">
+            <p><strong>TIP ~ </strong> Click the "Sound ~ ON/OFF" button to enable music!</p>
+        </div>
+
+        <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: #0072ff; color: #fff; border-radius: 10px; font-size: 1.2em;">Sound: OFF</button>
+
+        <audio id="audio" loop>
+            <source src="song1.mp3" type="audio/mp3" />
+        </audio>
+
+        <script>
+            function toggleAudio() {
+                var audioElement = document.getElementById("audio");
+
+                var button = document.getElementById("soundToggle");
+
+                if (audioElement.paused) {
+                    audioElement.play().catch((error) => console.error("Playback failed:", error));
+
+                    button.textContent = "Sound ~ ON";
+
+                    button.style.backgroundColor = "#28a745";
+                } else {
+                    audioElement.pause();
+
+                    button.textContent = "Sound ~ OFF";
+
+                    button.style.backgroundColor = "#0072ff";
+                }
+            }
+        </script>
+    </body>
 </html>
