@@ -92,15 +92,16 @@
             margin: 10px 0;
             font-size: 1.2em;
             color: #001F4D;
-            animation: listColorChange 6s infinite alternate;
+            animation: listRainbowEffect 6s infinite;
         }
 
-        @keyframes listColorChange {
-            0% { color: #FFB3B3; }
-            25% { color: #FFD9B3; }
-            50% { color: #FFFFB3; }
-            75% { color: #B3FFB3; }
-            100% { color: #B3D9FF; }
+        @keyframes listRainbowEffect {
+            0% { color: rgba(255, 179, 179, 0.96); }
+            20% { color: rgba(255, 217, 179, 1); }
+            40% { color: rgba(255, 255, 179, 0.96); }
+            60% { color: rgba(179, 255, 179, 1); }
+            80% { color: rgba(179, 217, 255, 0.96); }
+            100% { color: rgba(217, 179, 255, 1); }
         }
 
         .sound-info {
