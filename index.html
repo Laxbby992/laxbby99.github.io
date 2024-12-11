@@ -8,7 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+            background: linear-gradient(135deg, #FFB3B3, #FFD9B3, #FFFFB3, #B3FFB3, #B3D9FF, #D9B3FF, #FFB3B3);
+            background-size: 200% 200%;
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -16,27 +17,29 @@
             justify-content: flex-start;
             min-height: 200vh;
             padding: 20px;
-            animation: backgroundShift 5s linear infinite;
+            animation: backgroundAnimate 6s infinite alternate-reverse;
         }
 
-        @keyframes backgroundShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes backgroundAnimate {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 0%; }
+            75% { background-position: 50% 50%; }
+            100% { background-position: 0% 100%; }
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background: linear-gradient(45deg, #FFB3B3, #FFD9B3, #FFFFB3, #B3FFB3, #B3D9FF, #D9B3FF, #FFB3B3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: rainbowText 3s infinite;
+            animation: textGlow 4s infinite alternate;
         }
 
-        @keyframes rainbowText {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px #FFB3B3; }
+            100% { text-shadow: 0 0 20px #D9B3FF; }
         }
 
         .container {
@@ -46,19 +49,13 @@
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); }
-            to { box-shadow: 0 0 40px rgba(255, 255, 255, 1); }
         }
 
         img {
             width: 400px;
             border-radius: 15px;
             margin: 20px 0;
-            animation: imgBounce 3s infinite ease-in-out, pulse 1.5s infinite;
+            animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
@@ -68,19 +65,13 @@
 
         .buy-button {
             display: inline-block;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background: #007BFF;
             color: #fff;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-size: 1.5em;
             margin-top: 15px;
-            animation: buttonGlow 3s infinite;
-        }
-
-        @keyframes buttonGlow {
-            0%, 100% { box-shadow: 0 0 10px red; }
-            50% { box-shadow: 0 0 30px violet; }
         }
 
         .scroll-container {
@@ -90,12 +81,6 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
-            animation: scrollGlow 2s infinite alternate;
-        }
-
-        @keyframes scrollGlow {
-            from { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-            to { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
         }
 
         .options-list ul {
@@ -107,17 +92,15 @@
             margin: 10px 0;
             font-size: 1.2em;
             color: rgba(255, 255, 255, 0.9);
-            animation: listColorChange 4s infinite;
+            animation: listColorChange 6s infinite alternate;
         }
 
         @keyframes listColorChange {
-            0% { color: red; }
-            16% { color: orange; }
-            33% { color: yellow; }
-            50% { color: green; }
-            66% { color: blue; }
-            83% { color: indigo; }
-            100% { color: violet; }
+            0% { color: #FFB3B3; }
+            25% { color: #FFD9B3; }
+            50% { color: #FFFFB3; }
+            75% { color: #B3FFB3; }
+            100% { color: #B3D9FF; }
         }
 
         .sound-info {
@@ -130,12 +113,18 @@
             border-radius: 10px;
             width: 90%;
             max-width: 400px;
-            animation: infoGlow 3s infinite alternate;
         }
 
-        @keyframes infoGlow {
-            from { background: rgba(0, 0, 0, 0.7); }
-            to { background: rgba(255, 255, 255, 0.3); }
+        button {
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: linear-gradient(45deg, #FFB3B3, #FFD9B3, #FFFFB3, #B3FFB3, #B3D9FF, #D9B3FF);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -176,7 +165,7 @@
     <div class="sound-info">
         <p><strong>Tip:</strong> Click the "Sound: ON/OFF" button to enable music!</p>
     </div>
-    <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet); color: #fff; border-radius: 10px; font-size: 1.2em;">Sound: OFF</button>
+    <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
     <audio id="audio" loop>
         <source src="song1.mp3" type="audio/mp3">
     </audio>
@@ -187,11 +176,9 @@
             if (audioElement.paused) {
                 audioElement.play().catch(error => console.error('Playback failed:', error));
                 button.textContent = "Sound: ON";
-                button.style.background = "linear-gradient(45deg, green, yellow, blue)";
             } else {
                 audioElement.pause();
                 button.textContent = "Sound: OFF";
-                button.style.background = "linear-gradient(45deg, red, orange, violet)";
             }
         }
     </script>
