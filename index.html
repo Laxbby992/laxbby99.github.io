@@ -8,128 +8,159 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #333;
+            background: linear-gradient(to bottom, #333, #555);
             color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 700px;
-            padding: 30px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+            justify-content: flex-start;
+            min-height: 200vh;
+            padding: 20px;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             background: linear-gradient(45deg, #ff5f6d, #ffc371);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        p {
-            margin: 10px 0;
-            line-height: 1.6;
+        .container {
+            max-width: 900px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            width: 400px;
+            border-radius: 15px;
+            margin: 20px 0;
+            animation: imgBounce 3s infinite ease-in-out;
+        }
+
+        @keyframes imgBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .buy-button {
             display: inline-block;
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
             color: #fff;
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-size: 1.5em;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            margin-top: 15px;
         }
 
-        .buy-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        .scroll-container {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
         }
 
-        #soundHint {
+        .options-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin: 10px 0;
             font-size: 1.2em;
-            margin-top: 20px;
-            text-align: center;
-            position: relative;
-            animation: fadeIn 1s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        .options-list li::before {
+            content: "\2794";
+            color: #ffc371;
+            margin-right: 10px;
         }
 
         .arrow {
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 20px solid #ffc371;
             position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 10px;
+            right: 50%;
+            transform: translateX(50%);
+            font-size: 2em;
+            color: rgba(255, 255, 255, 0.7);
             animation: arrowBlink 1.5s infinite;
-            filter: blur(2px);
         }
 
         @keyframes arrowBlink {
             0%, 100% {
-                opacity: 0.7;
-                transform: translateX(-50%) translateY(-5px);
+                opacity: 1;
             }
             50% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
+                opacity: 0.5;
             }
         }
 
-        #soundToggle {
-            display: inline-block;
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 1.5em;
+        .sound-info {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            bottom: 10px;
+            text-align: center;
+            font-size: 1em;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
         }
 
-        #soundToggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
-            background: linear-gradient(45deg, #0072ff, #00c6ff);
+        .sound-info strong {
+            color: #ffc371;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Tofeuszo Shop</h1>
-        <p>Tofeuszo Raider (For Discord) | $5</p>
+        <img src="Tofeuszo.png" alt="Tofeuszo Raider">
+        <p>The ultimate advanced raider with 20 powerful raid options tailored for any Discord scenario.</p>
         <a href="https://discord.gg/W2JF82pNDn" class="buy-button">Buy Now</a>
     </div>
-    <div id="soundHint">
-        Click ON/OFF below to toggle music
-        <div class="arrow"></div>
+    <div class="scroll-container">
+        <h2>Available Options:</h2>
+        <div class="options-list">
+            <ul>
+                <li>Join Server</li>
+                <li>Leave Server</li>
+                <li>Channel Spammer</li>
+                <li>Token Checker</li>
+                <li>Reaction Adder</li>
+                <li>Token Formatter</li>
+                <li>Auto Button Click</li>
+                <li>Rules Consent</li>
+                <li>Guild Info</li>
+                <li>Friend Requester</li>
+                <li>Auto Online</li>
+                <li>SoundBoard Spam</li>
+                <li>Nickname Rotator</li>
+                <li>Thread Spammer</li>
+                <li>Fake Typing</li>
+                <li>Voice Spammer</li>
+                <li>BIO Changer</li>
+                <li>Voice Joiner</li>
+                <li>OnBoard Bypass</li>
+                <li>About Credits</li>
+            </ul>
+        </div>
     </div>
-    <button id="soundToggle" onclick="toggleAudio()">Sound: OFF</button>
+    <div class="sound-info">
+        <p><strong>Tip:</strong> Click the "Sound: ON/OFF" button to enable music!</p>
+    </div>
+    <button id="soundToggle" onclick="toggleAudio()" style="position: fixed; bottom: 50px; right: 20px; padding: 10px 20px; border: none; background: #0072ff; color: #fff; border-radius: 10px; font-size: 1.2em;">Sound: OFF</button>
     <audio id="audio" loop>
         <source src="song1.mp3" type="audio/mp3">
     </audio>
@@ -138,22 +169,15 @@
             var audioElement = document.getElementById('audio');
             var button = document.getElementById('soundToggle');
             if (audioElement.paused) {
-                audioElement.play().catch(error => {
-                    console.error('Playback failed:', error);
-                });
+                audioElement.play().catch(error => console.error('Playback failed:', error));
                 button.textContent = "Sound: ON";
                 button.style.backgroundColor = "#28a745";
             } else {
                 audioElement.pause();
                 button.textContent = "Sound: OFF";
-                button.style.backgroundColor = "#dc3545";
+                button.style.backgroundColor = "#0072ff";
             }
         }
-        document.addEventListener('DOMContentLoaded', function() {
-            document.body.addEventListener('click', function() {
-                document.getElementById('audio').play().catch(() => {});
-            }, { once: true });
-        });
     </script>
 </body>
 </html>
